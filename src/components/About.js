@@ -17,9 +17,10 @@ export default function About() {
 			});
 			setBtnText('Enable Light Mode');
 		} else {
-			setMyStyle({
-				color: 'black',
+      setMyStyle({
+        color: 'black',
 				backgroundColor: 'white',
+        border: '1px solid white',
 			});
 			setBtnText('Enable Dark Mode');
 		}
