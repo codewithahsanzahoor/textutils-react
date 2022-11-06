@@ -17,6 +17,10 @@ export default function TextForm(props) {
 		finalText(event.target.value);
 	};
 
+	const clearBtn = () => {
+		finalText('');
+	};
+
 	return (
 		<>
 			<div className="mb-3 my-2">
@@ -39,6 +43,9 @@ export default function TextForm(props) {
 			</button>
 			<button className="btn btn-primary mx-2" onClick={lowerBtn}>
 				Convert To Lower Text
+			</button>
+			<button className="btn btn-primary mx-2" onClick={clearBtn}>
+				Clear
 			</button>
 			<div className="container my-2">
 				<h2>your Text Summary</h2>
