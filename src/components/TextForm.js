@@ -21,6 +21,26 @@ export default function TextForm(props) {
 		finalText('');
 	};
 
+	let textAreaBackgroundColor = {
+		backgroundColor: props.mode === 'dark' ? 'grey' : 'white',
+		color: props.mode === 'dark' ? 'white' : 'black',
+	};
+
+	let otherTextStyle = {
+		backgroundColor: props.mode === 'dark' ? 'black' : 'white',
+		color: props.mode === 'dark' ? 'white' : 'black',
+	};
+
+	// const previewChangeText = () => {
+	// 	let previewText = document.getElementsByClassName('previewText')[0];
+	// 	if (text.length >= 1) {
+	// 		previewText.innerHTML = text;
+	// 	} else {
+	// 		previewText.innerHTML =
+	// 			'(Enter something above the box to preview here!)';
+	// 	}
+	// };
+
 	return (
 		<>
 			<div className="mb-3 my-2">
@@ -36,6 +56,7 @@ export default function TextForm(props) {
 					rows={6}
 					value={text}
 					onChange={finalTextFunc}
+					style={textAreaBackgroundColor}
 				/>
 			</div>
 			<button className="btn btn-primary" onClick={capitalBtn}>
@@ -47,7 +68,7 @@ export default function TextForm(props) {
 			<button className="btn btn-primary mx-2" onClick={clearBtn}>
 				Clear
 			</button>
-			<div className="container my-2">
+			<div className="container my-2" style={otherTextStyle}>
 				<h2>your Text Summary</h2>
 				<p>
 					<b>
@@ -58,7 +79,11 @@ export default function TextForm(props) {
 					<b>{0.008 * text.split(' ').length} Time to read this text</b>
 				</p>
 				<h2>Preview of Above Text.</h2>
-				<p>{text}</p>
+				<p className="previewText">
+					{text.length >= 1
+						? text
+						: 'Enter something above the box to preview here!'}
+				</p>
 			</div>
 		</>
 	);
