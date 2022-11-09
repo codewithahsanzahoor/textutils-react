@@ -17,15 +17,16 @@ export default function About() {
 			});
 			setBtnText('Enable Light Mode');
 		} else {
-      setMyStyle({
-        color: 'black',
+			setMyStyle({
+				color: 'black',
 				backgroundColor: 'white',
-        border: '1px solid white',
+				border: '1px solid white',
 			});
 			setBtnText('Enable Dark Mode');
 		}
 	};
 
+//*this is how we style in jsx
 	// let myStyle = {
 	// 	backgroundColor: 'black',
 	// 	// border: '2px solid green',

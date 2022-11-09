@@ -6,19 +6,22 @@ export default function TextForm(props) {
 	const capitalBtn = () => {
 		let finalValue = text.toUpperCase();
 		finalText(finalValue);
+		props.showAlert('All text is Capitalized!', 'success');
 	};
 
 	const lowerBtn = () => {
 		let finalValue = text.toLowerCase();
 		finalText(finalValue);
-	};
-
-	const finalTextFunc = (event) => {
-		finalText(event.target.value);
+		props.showAlert('All text is converted into Lower Case!', 'success');
 	};
 
 	const clearBtn = () => {
 		finalText('');
+		props.showAlert('Clear All Text in TextArea!', 'success');
+	};
+
+	const finalTextFunc = (event) => {
+		finalText(event.target.value);
 	};
 
 	let textAreaBackgroundColor = {

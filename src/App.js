@@ -13,31 +13,47 @@ function App() {
 			setMode('dark');
 			document.body.style.color = 'white';
 			document.body.style.backgroundColor = 'black';
+
+			//*changing the alert state for Alert.js
+			changeAlert('Dark mode is enabled', 'success');
 		} else {
 			setMode('light');
 			document.body.style.color = 'black';
 			document.body.style.backgroundColor = 'white';
+
+			//*changing the alert state for Alert.js
+			changeAlert('Light mode is enabled', 'success');
 		}
 	};
 
-	//*now making an alert function for Alert.js
-	const [alert, setAlert] = useState(null);
+	//*now making an alert object for Alert.js which is a state
+	const [alert, setAlert] = useState({
+		message: '',
+		type: '',
+	});
 
 	const changeAlert = (message, type) => {
 		setAlert({
 			message: message,
 			type: type,
 		});
+		setTimeout(() => {
+			setAlert(null);
+		}, 1500);
 	};
 
 	return (
 		<>
 			<Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
 
-			<Alert alertText={alert} />
+			<Alert alert={alert} />
 
 			<div className="container my-3">
-				<TextForm heading="Type the Text here:" mode={mode} />
+				<TextForm
+					heading="Type the Text here:"
+					mode={mode}
+					showAlert={changeAlert}
+				/>
 
 				{/* <About /> */}
 			</div>
