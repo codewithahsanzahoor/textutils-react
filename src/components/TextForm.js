@@ -62,20 +62,25 @@ export default function TextForm(props) {
 					style={textAreaBackgroundColor}
 				/>
 			</div>
-			<button className="btn btn-primary" onClick={capitalBtn}>
+			<button className="btn btn-primary my-2" onClick={capitalBtn}>
 				Convert To Capital Text
 			</button>
-			<button className="btn btn-primary mx-2" onClick={lowerBtn}>
+			<button className="btn btn-primary mx-2 my-2" onClick={lowerBtn}>
 				Convert To Lower Text
 			</button>
-			<button className="btn btn-primary mx-2" onClick={clearBtn}>
+			<button className="btn btn-primary mx-2 my-2" onClick={clearBtn}>
 				Clear
 			</button>
 			<div className="container my-2" style={otherTextStyle}>
 				<h2>your Text Summary</h2>
 				<p>
 					<b>
-						{text.split(' ').length} words and {text.length} characters
+						{
+							text.split(' ').filter((element) => {
+								return element.length !== 0;
+							}).length
+						}{' '}
+						words and {text.length} characters
 					</b>
 				</p>
 				<p>

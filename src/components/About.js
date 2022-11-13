@@ -1,32 +1,37 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
-export default function About() {
-	const [myStyle, setMyStyle] = useState({
-		backgroundColor: 'black',
-		color: 'white',
-	});
+export default function About(props) {
+	// const [myStyle, setMyStyle] = useState({
+	// 	backgroundColor: 'black',
+	// 	color: 'white',
+	// });
 
-	const [btnText, setBtnText] = useState('Enable White Mode');
-
-	const toogleStyle = () => {
-		if (myStyle.color === 'black') {
-			setMyStyle({
-				color: 'white',
-				backgroundColor: 'black',
-				border: '1px solid white',
-			});
-			setBtnText('Enable Light Mode');
-		} else {
-			setMyStyle({
-				color: 'black',
-				backgroundColor: 'white',
-				border: '1px solid white',
-			});
-			setBtnText('Enable Dark Mode');
-		}
+	let myStyle = {
+		color: props.mode === 'light' ? 'black' : 'white',
+		backgroundColor: props.mode === 'dark' ? 'black' : 'white',
 	};
 
-//*this is how we style in jsx
+	// const [btnText, setBtnText] = useState('Enable White Mode');
+
+	// const toogleStyle = () => {
+	// 	if (myStyle.color === 'black') {
+	// 		setMyStyle({
+	// 			color: 'white',
+	// 			backgroundColor: 'black',
+	// 			border: '1px solid white',
+	// 		});
+	// 		setBtnText('Enable Light Mode');
+	// 	} else {
+	// 		setMyStyle({
+	// 			color: 'black',
+	// 			backgroundColor: 'white',
+	// 			border: '1px solid white',
+	// 		});
+	// 		setBtnText('Enable Dark Mode');
+	// 	}
+	// };
+
+	//*this is how we style in jsx
 	// let myStyle = {
 	// 	backgroundColor: 'black',
 	// 	// border: '2px solid green',
@@ -139,9 +144,9 @@ export default function About() {
 				</div>
 			</div>
 			<div className="container my-2">
-				<button onClick={toogleStyle} type="button" className="btn btn-primary">
+				{/* <button onClick={toogleStyle} type="button" className="btn btn-primary">
 					{btnText}
-				</button>
+				</button> */}
 			</div>
 		</div>
 	);
