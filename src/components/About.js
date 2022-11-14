@@ -6,10 +6,21 @@ export default function About(props) {
 	// 	color: 'white',
 	// });
 
+	//NOTE: 1) this is how you style the elements using {style}tag in elements and making objects of the Properties you want to apply 2) by using dom manipulation and using classes and id in js.
 	let myStyle = {
 		color: props.mode === 'light' ? 'black' : 'white',
 		backgroundColor: props.mode === 'dark' ? 'black' : 'white',
 	};
+
+	let btnStyleForAccordian = {
+		backgroundColor: props.mode === 'dark' ? 'black' : 'white',
+		color: props.mode === 'light' ? 'black' : '#c05e5e',
+	};
+
+	
+
+	// let bodyFontColor = document.getElementsByClassName('bodyFontColorAhsan')
+	// document.getElementById('bodyFontColorAhsan')
 
 	// const [btnText, setBtnText] = useState('Enable White Mode');
 
@@ -55,7 +66,7 @@ export default function About(props) {
 							data-bs-target="#collapseOne"
 							aria-expanded="true"
 							aria-controls="collapseOne"
-							style={myStyle}
+							style={btnStyleForAccordian}
 						>
 							Accordion Item #1
 						</button>
@@ -81,13 +92,13 @@ export default function About(props) {
 				<div className="accordion-item" style={myStyle}>
 					<h2 className="accordion-header" id="headingTwo">
 						<button
-							className="accordion-button collapsed"
+							className="accordion-button collapsed "
 							type="button"
 							data-bs-toggle="collapse"
 							data-bs-target="#collapseTwo"
 							aria-expanded="false"
 							aria-controls="collapseTwo"
-							style={myStyle}
+							style={btnStyleForAccordian}
 						>
 							Accordion Item #2
 						</button>
@@ -98,7 +109,7 @@ export default function About(props) {
 						aria-labelledby="headingTwo"
 						data-bs-parent="#accordionExample"
 					>
-						<div className="accordion-body">
+						<div className="accordion-body " id="bodyFontColorAhsan">
 							<strong>This is the second item's accordion body.</strong> It is
 							hidden by default, until the collapse plugin adds the appropriate
 							classes that we use to style each element. These classes control
@@ -113,16 +124,16 @@ export default function About(props) {
 				<div className="accordion-item" style={myStyle}>
 					<h2 className="accordion-header" id="headingThree">
 						<button
-							className="accordion-button collapsed"
+							className="accordion-button collapsed "
 							type="button"
 							data-bs-toggle="collapse"
 							data-bs-target="#collapseThree"
 							aria-expanded="false"
 							aria-controls="collapseThree"
-							style={myStyle}
+							style={btnStyleForAccordian}
 						>
 							Accordion Item #3
-						</button>
+						</button>	
 					</h2>
 					<div
 						id="collapseThree"

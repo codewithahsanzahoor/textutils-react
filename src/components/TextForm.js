@@ -62,13 +62,25 @@ export default function TextForm(props) {
 					style={textAreaBackgroundColor}
 				/>
 			</div>
-			<button className="btn btn-primary my-2" onClick={capitalBtn}>
+			<button
+				disabled={text.length === 0}
+				className="btn btn-primary my-2"
+				onClick={capitalBtn}
+			>
 				Convert To Capital Text
 			</button>
-			<button className="btn btn-primary mx-2 my-2" onClick={lowerBtn}>
+			<button
+				disabled={text.length === 0}
+				className="btn btn-primary mx-2 my-2"
+				onClick={lowerBtn}
+			>
 				Convert To Lower Text
 			</button>
-			<button className="btn btn-primary mx-2 my-2" onClick={clearBtn}>
+			<button
+				disabled={text.length === 0}
+				className="btn btn-primary mx-2 my-2"
+				onClick={clearBtn}
+			>
 				Clear
 			</button>
 			<div className="container my-2" style={otherTextStyle}>
@@ -84,13 +96,17 @@ export default function TextForm(props) {
 					</b>
 				</p>
 				<p>
-					<b>{0.008 * text.split(' ').length} Time to read this text</b>
+					<b>
+						{0.008 *
+							text.split(' ').filter((element) => {
+								return element.length !== 0;
+							}).length}{' '}
+						Time to read this text
+					</b>
 				</p>
 				<h2>Preview of Above Text.</h2>
 				<p className="previewText">
-					{text.length >= 1
-						? text
-						: 'Enter something above the box to preview here!'}
+					{text.length >= 1 ? text : 'Nothing to Preview!'}
 				</p>
 			</div>
 		</>
